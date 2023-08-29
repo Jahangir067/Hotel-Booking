@@ -1,0 +1,17 @@
+.mailInputContainer>input{
+     width: 300px;
+     height: 30px;
+     padding: 10px;
+     border: none;
+     margin-right: 10px;
+     border-radius: 4px;
+}
+.mailInputContainer>button{
+    height: 32px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: 500;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+}

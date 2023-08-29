@@ -56,13 +56,13 @@ const Header = ({type}) => {
                 </div>
                { type !== "list" && <> <h1 className="headerTitle">A Lifetime Discounts? It's Genius.</h1>
                 <p className='headerDesc'>Get rewarded for your travels unlock instant savings of 10% or more with a free BoiToron Account</p>
-                <button className="headerBtn btn btn-secondary">Sign in/ Register</button>
+                <button className="headerBtn hover:bg-blue-700">Sign in/ Register</button>
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faBed} className='headerIcon' />
                         <input
                             type="text"
-                            placeholder='where are you going?' className='headerSearchInput' />
+                            placeholder='where are you going?' className='headerSearchInput text-black' />
                     </div>
 
                     <div className="headerSearchItem">
@@ -77,7 +77,7 @@ const Header = ({type}) => {
                         />}
                     </div>
 
-                    <div className="headerSearchItem">
+                    <div className="headerSearchItem p-4">
                         <FontAwesomeIcon icon={faPerson} className='headerIcon' />
                         <span onClick={() => setOpenOptions(!openOptions)} className='headerSearchText'>{`${options.adult} adult . ${options.children} children . ${options.room} room`}</span>
                         {openOptions && <div className="options">
@@ -111,7 +111,7 @@ const Header = ({type}) => {
                     </div>
 
                     <div className="headerSearchItem">
-                        <button className='headerBtn'>Search</button>
+                        <button className='headerBtn hover:bg-blue-700'>Search</button>
                     </div>
                 </div></> }
             </div>
