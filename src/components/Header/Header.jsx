@@ -6,9 +6,11 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import {format} from "date-fns"
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = ({type}) => {
+    const [destination, setDestination] = useState('')
     const [openDate, setOpenDate] = useState(false)
     const [date, setDate] = useState([
         {
@@ -24,11 +26,18 @@ const Header = ({type}) => {
         room: 1,
     });
 
+    const navigate = useNavigate()
+
     const handleOption = (name, operation) => {
         setOptions(prev => { return {
             ...prev, [name]: operation ==='i' ? options[name] +1 : options[name] -1,
         }})
     }
+
+    const handleSearch = () => {
+        navigate('/hotels', {state: {destination, date, options}});
+    }
+
     return (
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
@@ -62,7 +71,10 @@ const Header = ({type}) => {
                         <FontAwesomeIcon icon={faBed} className='headerIcon' />
                         <input
                             type="text"
-                            placeholder='where are you going?' className='headerSearchInput text-black' />
+                            placeholder='where are you going?' 
+                            className='headerSearchInput text-black' 
+                            onChange={e=> setDestination(e.target.value)}
+                            />
                     </div>
 
                     <div className="headerSearchItem">
@@ -111,7 +123,7 @@ const Header = ({type}) => {
                     </div>
 
                     <div className="headerSearchItem">
-                        <button className='headerBtn hover:bg-blue-700'>Search</button>
+                        <button className='headerBtn hover:bg-blue-700' onClick={handleSearch}>Search</button>
                     </div>
                 </div></> }
             </div>
